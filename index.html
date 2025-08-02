@@ -1,20 +1,36 @@
-好的，这是包含所有修改和导航功能的 `index.html` 文件，您可以直接下载使用：
-
-```html
-<html><head><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>月子中心声光疗愈解决方案</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&amp;family=Noto+Serif+SC&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com"></script><style>
-        body {width: 1360px; min-height: 777px; margin: 0;
-            padding: 0;}
-        .slide {
-            width: 1280px;
-            min-height: 777px;
-            position: relative;
-            background-color: #FFF8F4; /* Warm Ivory */
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>月子中心声光疗愈解决方案</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans SC', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            scroll-padding-top: 6rem; /* Padding to account for the fixed header */
         }
+        .slide-section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden; /* For decorative circles */
+        }
+        .slide-bg-1 { background-color: #FFF8F4; } /* Warm Ivory */
+        .slide-bg-2 { background-color: #C7D3BF; } /* Sage Green */
+        .slide-bg-3 { background-color: #E6D7E7; } /* Soft Mauve */
+
         .title {
             font-family: 'Noto Serif SC', serif;
             color: #5A4A42;
@@ -24,7 +40,7 @@
             font-weight: 300;
             color: #6B5750;
         }
-        .footer {
+        .footer-text {
             font-family: 'Noto Sans SC', sans-serif;
             font-weight: 300;
             color: #8D7B74;
@@ -46,26 +62,57 @@
             background: linear-gradient(90deg, #C7D3BF 0%, #E6D7E7 100%);
             border-radius: 3px;
         }
-
-        /* Responsive Navigation Styles */
         .nav-link {
             padding: 0.5rem 1rem;
             color: #5A4A42;
             text-decoration: none;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
         .nav-link:hover {
             color: #A57F75;
         }
+        .light-card {
+            background-color: #FFF8F4;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .light-card:hover {
+            transform: translateY(-10px);
+        }
+        .light-card .icon-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .light-card h3 {
+            font-family: 'Noto Serif SC', serif;
+        }
+        .contact-card {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        .contact-card .icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         @media (max-width: 768px) {
-            .slide {
-                width: 100%;
-                padding: 1rem;
-            }
             .nav-menu {
                 flex-direction: column;
                 display: none;
                 width: 100%;
+                background-color: #fff;
+                padding-bottom: 1rem;
             }
             .nav-menu.active {
                 display: flex;
@@ -79,58 +126,592 @@
             .hamburger-menu {
                 display: block;
             }
+            .features {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .light-therapy-cards {
+                flex-direction: column;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-<div class="slide flex flex-col items-center justify-between p-12 relative">
+
+    <!-- Responsive Navigation Bar -->
     <header class="w-full bg-white bg-opacity-90 shadow-md py-4 px-6 flex justify-between items-center fixed top-0 left-0 z-50 md:flex-row flex-wrap">
         <div class="text-xl font-bold text-[#5A4A42]">月子中心</div>
         <button class="md:hidden hamburger-menu text-2xl text-[#5A4A42]" onclick="document.getElementById('navMenu').classList.toggle('active');">
             &#9776;
         </button>
         <nav id="navMenu" class="nav-menu md:flex md:space-x-8 mt-4 md:mt-0 w-full md:w-auto">
-            <a href="index.html" class="nav-link">月子中心声光疗愈解决方案</a>
-            <a href="index2.html" class="nav-link">三大挑战</a>
-            <a href="index3.html" class="nav-link">光疗系统</a>
-            <a href="index4.html" class="nav-link">声音疗愈</a>
-            <a href="index5.html" class="nav-link">现场服务</a>
-            <a href="index6.html" class="nav-link">双赢价值</a>
-            <a href="index7.html" class="nav-link">3步落地</a>
-            <a href="index8.html" class="nav-link">联系我们</a>
+            <a href="#solution-intro" class="nav-link">解决方案</a>
+            <a href="#challenges" class="nav-link">三大挑战</a>
+            <a href="#light-therapy" class="nav-link">光疗系统</a>
+            <a href="#sound-therapy" class="nav-link">声音疗愈</a>
+            <a href="#on-site-service" class="nav-link">现场服务</a>
+            <a href="#win-win-value" class="nav-link">双赢价值</a>
+            <a href="#implementation" class="nav-link">3步落地</a>
+            <a href="#contact" class="nav-link">联系我们</a>
         </nav>
     </header>
 
-    <div class="accent-circle w-64 h-64 top-[-100px] right-[-80px]"></div>
-    <div class="accent-circle w-40 h-40 bottom-[-10px] left-[100px]"></div>
-
-    <div class="z-10 text-center mt-8 pt-20"> <h1 class="title text-5xl mb-6">月子中心声光疗愈解决方案</h1>
-        <div class="decorative-line w-96 mx-auto mb-6"></div>
-        <p class="subtitle text-2xl">为产后妈妈解决<span class="highlight">情绪</span>·<span class="highlight">睡眠</span>·<span class="highlight">身体恢复</span>三大难题</p>
-    </div>
-
-    <div class="image-container z-10 my-8">
-        <img alt="母婴温馨时刻" class="w-[700px] h-[400px] object-cover" src="https://picture-search.skywork.ai/aippt/image/sheet/5873531dedc9a4bb5e6c010604ef9e02.jpg"/>
-    </div>
-
-    <div class="features flex justify-center space-x-12 z-10 mb-8">
-        <div class="feature-item text-center">
-            <img alt="情绪舒缓" class="mx-auto mb-3 w-24 h-24" src="https://picture-search.skywork.ai/aippt/image/sheet/542c388656123e430ae1c9441f3e9a59.jpg"/>
-            <p class="text-xl font-medium text-[#5A4A42]">情绪舒缓</p>
+    <!-- Section 1: 首页 -->
+    <div id="solution-intro" class="slide-section slide-bg-1 pt-24">
+        <!-- Decorative circles -->
+        <div class="accent-circle w-64 h-64 top-[-100px] right-[-80px]"></div>
+        <div class="accent-circle w-40 h-40 bottom-[-10px] left-[100px]"></div>
+        <!-- Title Section -->
+        <div class="z-10 text-center">
+            <h1 class="title text-5xl mb-6">月子中心声光疗愈解决方案</h1>
+            <div class="decorative-line w-96 mx-auto mb-6"></div>
+            <p class="subtitle text-2xl">为产后妈妈解决<span class="highlight">情绪</span>·<span class="highlight">睡眠</span>·<span class="highlight">身体恢复</span>三大难题</p>
         </div>
-        <div class="feature-item text-center">
-            <img alt="深度睡眠" class="mx-auto mb-3 w-24 h-24" src="https://picture-search.skywork.ai/aippt/image/sheet/a712f866468a5c36a2df85e505a415ff.jpg"/>
-            <p class="text-xl font-medium text-[#5A4A42]">深度睡眠</p>
+        <!-- Main Image -->
+        <div class="image-container z-10 my-8">
+            <img alt="母婴温馨时刻" class="w-[700px] h-[400px] object-cover rounded-2xl shadow-xl" src="https://picture-search.skywork.ai/aippt/image/sheet/5873531dedc9a4bb5e6c010604ef9e02.jpg"/>
         </div>
-        <div class="feature-item text-center">
-            <img alt="身体恢复" class="mx-auto mb-3 w-24 h-24" src="https://picture-search.skywork.ai/aippt/image/sheet/c49c7161b17b203c9603f26cf988f673.jpg"/>
-            <p class="text-xl font-medium text-[#5A4A42]">身体恢复</p>
+        <!-- Features Section -->
+        <div class="features flex flex-wrap justify-center space-x-12 z-10 mb-8 max-w-full">
+            <div class="feature-item text-center m-2">
+                <img alt="情绪舒缓" class="mx-auto mb-3 w-24 h-24 rounded-full" src="https://picture-search.skywork.ai/aippt/image/sheet/542c388656123e430ae1c9441f3e9a59.jpg"/>
+                <p class="text-xl font-medium text-[#5A4A42]">情绪舒缓</p>
+            </div>
+            <div class="feature-item text-center m-2">
+                <img alt="深度睡眠" class="mx-auto mb-3 w-24 h-24 rounded-full" src="https://picture-search.skywork.ai/aippt/image/sheet/a712f866468a5c36a2df85e505a415ff.jpg"/>
+                <p class="text-xl font-medium text-[#5A4A42]">深度睡眠</p>
+            </div>
+            <div class="feature-item text-center m-2">
+                <img alt="身体恢复" class="mx-auto mb-3 w-24 h-24 rounded-full" src="https://picture-search.skywork.ai/aippt/image/sheet/c49c7161b17b203c9603f26cf988f673.jpg"/>
+                <p class="text-xl font-medium text-[#5A4A42]">身体恢复</p>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer text-center z-10">
+            <p class="footer-text">声光同步，科技赋能，给产后妈妈身心灵的疗愈与滋养</p>
         </div>
     </div>
 
-    <div class="footer text-center mt-auto z-10">
-        <p>声光同步，科技赋能，给产后妈妈身心灵的疗愈与滋养</p>
+    <!-- Section 2: 三大挑战 -->
+    <div id="challenges" class="slide-section slide-bg-1">
+        <div class="z-10 text-center">
+            <h2 class="title text-4xl mb-2">产后三大挑战</h2>
+            <p class="subtitle text-xl mb-8">情绪·睡眠·身体恢复</p>
+        </div>
+        <div class="w-full max-w-4xl p-4 md:p-8 bg-white bg-opacity-70 rounded-3xl shadow-xl z-10">
+            <div class="w-full h-80" id="challenge-chart-container">
+                <svg id="challenge-chart" width="100%" height="100%"></svg>
+            </div>
+        </div>
     </div>
-</div>
-</body></html>
-```
+
+    <!-- Section 3: 光疗系统 -->
+    <div id="light-therapy" class="slide-section slide-bg-2">
+        <!-- Decorative circles -->
+        <div class="accent-circle w-64 h-64 top-[-100px] left-[-80px]"></div>
+        <div class="accent-circle w-40 h-40 bottom-[-10px] right-[100px]"></div>
+        <!-- Title Section -->
+        <div class="z-10 text-center mb-10">
+            <h2 class="title text-4xl mb-4 text-[#5A4A42]">声光疗愈解决方案 · 光疗系统</h2>
+            <div class="decorative-line w-80 mx-auto"></div>
+        </div>
+        <!-- Light Therapy Solutions -->
+        <div class="light-therapy-cards flex flex-col md:flex-row justify-center items-stretch space-y-8 md:space-y-0 md:space-x-8 max-w-full z-10">
+            <!-- Solution 1: 红光疗愈 -->
+            <div class="light-card flex-1 p-6 flex flex-col items-center max-w-sm">
+                <div class="icon-container bg-[#F4E5E1] mb-4">
+                    <i class="fas fa-heartbeat text-4xl text-[#A57F75]"></i>
+                </div>
+                <h3 class="font-bold text-xl text-[#5A4A42] mb-2">红光疗愈</h3>
+                <p class="text-center text-[#5A4A42] mb-3">630nm 特定波长红光</p>
+                <div class="w-full bg-[#A57F75] rounded-lg p-3 mb-3 opacity-70">
+                    <p class="text-center text-white font-bold">加速产后身体恢复</p>
+                </div>
+                <p class="text-center text-[#5A4A42] text-sm">红光照射能有效促进细胞修复，加速产后伤口愈合、缓解疼痛，同时改善皮肤状态</p>
+            </div>
+            <!-- Solution 2: 天青光助眠 -->
+            <div class="light-card flex-1 p-6 flex flex-col items-center max-w-sm">
+                <div class="icon-container bg-[#E6D7E7] mb-4">
+                    <i class="fas fa-moon text-4xl text-[#8D7B74]"></i>
+                </div>
+                <h3 class="font-bold text-xl text-[#5A4A42] mb-2">天青光助眠</h3>
+                <p class="text-center text-[#5A4A42] mb-3">480nm 特定波长蓝绿光</p>
+                <div class="w-full bg-[#6B8E9F] rounded-lg p-3 mb-3 opacity-70">
+                    <p class="text-center text-white font-bold">改善睡眠质量</p>
+                </div>
+                <p class="text-center text-[#5A4A42] text-sm">产后荷尔蒙波动及夜间哺乳常导致妈妈的昼夜节律紊乱，天青光能有效改善失眠和睡眠碎片化问题</p>
+            </div>
+            <!-- Solution 3: 互动光 -->
+            <div class="light-card flex-1 p-6 flex flex-col items-center max-w-sm">
+                <div class="icon-container bg-[#E6D7E7] mb-4">
+                    <i class="fas fa-lightbulb text-4xl text-[#8D7B74]"></i>
+                </div>
+                <h3 class="font-bold text-xl text-[#5A4A42] mb-2">互动光</h3>
+                <p class="text-center text-[#5A4A42] mb-3">动态变化的柔和光影</p>
+                <div class="w-full bg-[#E6D7E7] rounded-lg p-3 mb-3 opacity-70">
+                    <p class="text-center text-white font-bold">情绪舒缓 & 亲子互动</p>
+                </div>
+                <p class="text-center text-[#5A4A42] text-sm">创造安全感和趣味性环境，有效舒缓产后妈妈的紧张和焦虑情绪，增进母婴间的情感连接</p>
+            </div>
+        </div>
+        <!-- Scientific Reference -->
+        <div class="mt-8 text-center text-sm text-[#5A4A42] opacity-70 z-10">
+            <p>Meta分析表明，红光治疗组的伤口愈合总有效率显著高于对照组 (RR=1.21)</p>
+        </div>
+    </div>
+
+    <!-- Section 4: 声音疗愈 -->
+    <div id="sound-therapy" class="slide-section slide-bg-3">
+        <div class="z-10 text-center mb-10">
+            <h2 class="title text-4xl mb-4 text-[#5A4A42]">声光疗愈解决方案 · 声音疗愈</h2>
+            <div class="decorative-line w-80 mx-auto"></div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12 z-10">
+            <div class="flex-1 text-center max-w-md">
+                <img class="w-full h-auto rounded-3xl shadow-xl" src="https://picture-search.skywork.ai/aippt/image/sheet/124707297e51a660a9f5d17a47468132.jpg" alt="听觉疗愈图片">
+                <p class="text-xl font-bold mt-4 text-[#5A4A42]">听觉疗愈</p>
+                <p class="text-sm mt-2 text-[#8D7B74]">基于白噪声和双声拍原理，定制高保真自然声场，有效降低产后妈妈的心理应激水平</p>
+            </div>
+            <div class="flex-1 text-center max-w-md">
+                <img class="w-full h-auto rounded-3xl shadow-xl" src="https://picture-search.skywork.ai/aippt/image/sheet/ebf9479e51c8a49c95195ed870c97800.jpg" alt="触觉疗愈图片">
+                <p class="text-xl font-bold mt-4 text-[#5A4A42]">触觉疗愈</p>
+                <p class="text-sm mt-2 text-[#8D7B74]">通过内置音乐震动模块，将声音转化为震动，有效改善身体微循环，达到身体放松效果</p>
+            </div>
+        </div>
+        <div class="relative w-full h-40 max-w-5xl mt-12 z-0">
+            <svg id="sound-animation" width="100%" height="100%"></svg>
+        </div>
+    </div>
+
+    <!-- Section 5: 现场服务 -->
+    <div id="on-site-service" class="slide-section slide-bg-1">
+        <div class="z-10 text-center mb-10">
+            <h2 class="title text-4xl mb-4 text-[#5A4A42]">声光疗愈解决方案 · 现场服务</h2>
+            <div class="decorative-line w-80 mx-auto"></div>
+        </div>
+        <div class="w-full max-w-4xl p-4 md:p-8 bg-white bg-opacity-70 rounded-3xl shadow-xl z-10">
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-10">
+                <div class="flex-1 text-center">
+                    <img class="w-24 h-24 mx-auto mb-4 rounded-full shadow-md" src="https://picture-search.skywork.ai/aippt/image/sheet/3389ecae973ecf30b925b6a715f01344.jpg" alt="产后妈妈">
+                    <p class="text-sm font-medium text-[#5A4A42]">产后妈妈</p>
+                </div>
+                <div class="flex-1">
+                    <div class="w-full h-60" id="onsite-chart-container">
+                        <svg id="onsite-chart" width="100%" height="100%"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: 双赢价值 -->
+    <div id="win-win-value" class="slide-section slide-bg-1">
+        <div class="z-10 text-center mb-10">
+            <h2 class="title text-4xl mb-4 text-[#5A4A42]">声光疗愈解决方案 · 双赢价值</h2>
+            <div class="decorative-line w-80 mx-auto"></div>
+        </div>
+        <div class="w-full max-w-4xl p-4 md:p-8 bg-white bg-opacity-70 rounded-3xl shadow-xl z-10">
+            <div class="w-full h-80" id="win-win-chart-container">
+                <svg id="win-win-chart" width="100%" height="100%"></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: 3步落地 -->
+    <div id="implementation" class="slide-section slide-bg-1">
+        <div class="z-10 text-center mb-10">
+            <h2 class="title text-4xl mb-4 text-[#5A4A42]">声光疗愈解决方案 · 3步落地</h2>
+            <div class="decorative-line w-80 mx-auto"></div>
+        </div>
+        <div class="w-full max-w-4xl p-4 md:p-8 bg-white bg-opacity-70 rounded-3xl shadow-xl z-10">
+            <div class="w-full h-60" id="timeline-chart-container">
+                <svg id="timeline-chart" width="100%" height="100%"></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 8: 联系我们 -->
+    <div id="contact" class="slide-section slide-bg-1">
+        <div class="z-10 text-center mb-10">
+            <h2 class="title text-4xl mb-4 text-[#5A4A42]">声光疗愈解决方案 · 联系我们</h2>
+            <div class="decorative-line w-80 mx-auto"></div>
+        </div>
+        <div class="contact-card p-8 w-full max-w-3xl mb-8 z-10">
+            <h3 class="font-bold text-xl text-[#5A4A42] mb-6 text-center">合作諮詢</h3>
+            <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
+                <div class="flex items-center">
+                    <div class="icon-container bg-[#F4E5E1] flex-shrink-0">
+                        <i class="fas fa-phone text-2xl text-[#A57F75]"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-[#8D7B74]">諮詢專線</p>
+                        <p class="text-lg text-[#5A4A42] font-medium">18102535583</p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="icon-container bg-[#E6D7E7] flex-shrink-0">
+                        <i class="fab fa-weixin text-2xl text-[#8D7B74]"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-[#8D7B74]">微信</p>
+                        <p class="text-lg text-[#5A4A42] font-medium">Joseph5784</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-sm text-[#8D7B74] opacity-80 z-10">与我们一起引领高端月子中心的发展趋势</p>
+    </div>
+
+    <!-- D3.js scripts for all charts -->
+    <!-- Script for challenges chart -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const container = document.getElementById('challenge-chart-container');
+            const svg = d3.select("#challenge-chart");
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            const margin = {top: 20, right: 20, bottom: 20, left: 120};
+            
+            const data = [
+                { challenge: "情绪管理", percentage: 85, color: "#A57F75" },
+                { challenge: "睡眠不足", percentage: 90, color: "#6B8E9F" },
+                { challenge: "身体恢复慢", percentage: 75, color: "#8D7B74" }
+            ];
+
+            const maxBarWidth = width - margin.left - margin.right;
+            const barHeight = 40;
+            const barSpacing = 20;
+
+            const chartHeight = data.length * (barHeight + barSpacing);
+            svg.attr("viewBox", `0 0 ${width} ${chartHeight + margin.top + margin.bottom}`);
+
+            const g = svg.append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+            
+            const barGroups = g.selectAll(".bar-group")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("class", "bar-group")
+                .attr("transform", (d, i) => `translate(0, ${i * (barHeight + barSpacing)})`);
+            
+            barGroups.append("text")
+                .attr("x", -10)
+                .attr("y", barHeight / 2)
+                .attr("text-anchor", "end")
+                .attr("dominant-baseline", "middle")
+                .attr("fill", "#5A4A42")
+                .attr("font-size", "14px")
+                .text(d => d.challenge);
+            
+            barGroups.append("rect")
+                .attr("width", maxBarWidth)
+                .attr("height", barHeight)
+                .attr("rx", 10)
+                .attr("ry", 10)
+                .attr("fill", "#F4E5E1")
+                .attr("opacity", 0.5);
+            
+            barGroups.append("rect")
+                .attr("width", d => (d.percentage / 100) * maxBarWidth)
+                .attr("height", barHeight)
+                .attr("rx", 10)
+                .attr("ry", 10)
+                .attr("fill", d => d.color);
+            
+            barGroups.append("text")
+                .attr("x", d => (d.percentage / 100) * maxBarWidth - 20)
+                .attr("y", barHeight / 2)
+                .attr("text-anchor", "end")
+                .attr("dominant-baseline", "middle")
+                .attr("fill", "white")
+                .attr("font-size", "14px")
+                .attr("font-weight", "bold")
+                .text(d => d.percentage + "%");
+        });
+    </script>
+    
+    <!-- Script for sound animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const container = document.getElementById('sound-animation');
+            const svg = d3.select("#sound-animation");
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            
+            const g = svg.append("g")
+                .attr("transform", `translate(0, ${height / 2})`);
+
+            const circle1 = g.append("circle")
+                .attr("cx", 0)
+                .attr("cy", 0)
+                .attr("r", 50)
+                .attr("fill", "none")
+                .attr("stroke", "#C7D3BF")
+                .attr("stroke-width", 2)
+                .attr("opacity", 0.8);
+
+            const circle2 = g.append("circle")
+                .attr("cx", width / 3)
+                .attr("cy", 0)
+                .attr("r", 50)
+                .attr("fill", "none")
+                .attr("stroke", "#C7D3BF")
+                .attr("stroke-width", 2)
+                .attr("opacity", 0.8);
+            
+            const circle3 = g.append("circle")
+                .attr("cx", 2 * width / 3)
+                .attr("cy", 0)
+                .attr("r", 50)
+                .attr("fill", "none")
+                .attr("stroke", "#C7D3BF")
+                .attr("stroke-width", 2)
+                .attr("opacity", 0.8);
+
+            const circle4 = g.append("circle")
+                .attr("cx", width)
+                .attr("cy", 0)
+                .attr("r", 50)
+                .attr("fill", "none")
+                .attr("stroke", "#C7D3BF")
+                .attr("stroke-width", 2)
+                .attr("opacity", 0.8);
+
+            function animate() {
+                circle1.attr("cx", 0)
+                    .transition()
+                    .duration(4000)
+                    .ease(d3.easeLinear)
+                    .attr("cx", width)
+                    .on("end", () => {
+                         circle1.attr("cx", -width);
+                         animate();
+                    });
+                
+                circle2.attr("cx", width / 3)
+                    .transition()
+                    .duration(4000)
+                    .ease(d3.easeLinear)
+                    .attr("cx", width + width / 3)
+                    .on("end", () => {
+                        circle2.attr("cx", -width / 3);
+                    });
+
+                circle3.attr("cx", 2 * width / 3)
+                    .transition()
+                    .duration(4000)
+                    .ease(d3.easeLinear)
+                    .attr("cx", width + 2 * width / 3)
+                    .on("end", () => {
+                        circle3.attr("cx", -2 * width / 3);
+                    });
+                
+                circle4.attr("cx", width)
+                    .transition()
+                    .duration(4000)
+                    .ease(d3.easeLinear)
+                    .attr("cx", 2 * width)
+                    .on("end", () => {
+                        circle4.attr("cx", -width);
+                    });
+            }
+            animate();
+        });
+    </script>
+
+    <!-- Script for onsite service chart -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const container = document.getElementById('onsite-chart-container');
+            const svg = d3.select("#onsite-chart");
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            const margin = { top: 20, right: 20, bottom: 20, left: 40 };
+
+            const data = [
+                { stage: "治疗前", score: 12, color: "#8D7B74" },
+                { stage: "治疗后", score: 4, color: "#6B8E9F" }
+            ];
+
+            const x = d3.scaleBand()
+                .domain(data.map(d => d.stage))
+                .range([margin.left, width - margin.right])
+                .padding(0.6);
+
+            const y = d3.scaleLinear()
+                .domain([0, 15])
+                .range([height - margin.bottom, margin.top]);
+
+            const g = svg.append("g")
+                .attr("transform", `translate(0, 0)`);
+
+            // Add the bars
+            g.selectAll(".bar")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", d => x(d.stage))
+                .attr("y", d => y(d.score))
+                .attr("width", x.bandwidth())
+                .attr("height", d => y(0) - y(d.score))
+                .attr("rx", 10)
+                .attr("ry", 10)
+                .attr("fill", d => d.color);
+
+            // Add the labels
+            g.selectAll(".label")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("class", "label")
+                .attr("x", d => x(d.stage) + x.bandwidth() / 2)
+                .attr("y", d => y(d.score) - 10)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "16px")
+                .attr("font-weight", "bold")
+                .attr("fill", d => d.color)
+                .text(d => d.score);
+            
+            // Add arrow
+            svg.append("defs").append("marker")
+                .attr("id", "arrow")
+                .attr("viewBox", "0 -5 10 10")
+                .attr("refX", 5)
+                .attr("refY", 0)
+                .attr("markerWidth", 6)
+                .attr("markerHeight", 6)
+                .attr("orient", "auto")
+                .append("path")
+                .attr("d", "M0,-5L10,0L0,5")
+                .attr("fill", "#8D7B74");
+            
+            g.append("path")
+                .attr("d", `M${x("治疗前") + x.bandwidth() + 10},${y(12)} L${x("治疗后") - 10},${y(12)}`)
+                .attr("stroke", "#8D7B74")
+                .attr("stroke-width", 2)
+                .attr("marker-end", "url(#arrow)");
+        });
+    </script>
+    
+    <!-- Script for win-win value chart -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const container = document.getElementById('win-win-chart-container');
+            const svg = d3.select("#win-win-chart");
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            const margin = {top: 20, right: 20, bottom: 20, left: 120};
+            
+            const data = [
+                { category: "客户满意度提升", value: 95, color: "#A57F75" },
+                { category: "服务差异化竞争", value: 88, color: "#6B8E9F" },
+                { category: "品牌知名度增加", value: 80, color: "#8D7B74" }
+            ];
+
+            const maxBarWidth = width - margin.left - margin.right;
+            const barHeight = 40;
+            const barSpacing = 20;
+
+            const chartHeight = data.length * (barHeight + barSpacing);
+            svg.attr("viewBox", `0 0 ${width} ${chartHeight + margin.top + margin.bottom}`);
+
+            const g = svg.append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+            
+            const barGroups = g.selectAll(".bar-group")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("class", "bar-group")
+                .attr("transform", (d, i) => `translate(0, ${i * (barHeight + barSpacing)})`);
+            
+            barGroups.append("text")
+                .attr("x", -20)
+                .attr("y", barHeight / 2)
+                .attr("text-anchor", "end")
+                .attr("dominant-baseline", "middle")
+                .attr("fill", "#5A4A42")
+                .attr("font-size", "14px")
+                .attr("font-weight", "bold")
+                .text(d => d.category);
+            
+            barGroups.append("rect")
+                .attr("width", maxBarWidth)
+                .attr("height", barHeight)
+                .attr("rx", 15)
+                .attr("ry", 15)
+                .attr("fill", "#F4E5E1")
+                .attr("opacity", 0.5);
+            
+            barGroups.append("rect")
+                .attr("width", d => (d.value / 100) * maxBarWidth)
+                .attr("height", barHeight)
+                .attr("rx", 15)
+                .attr("ry", 15)
+                .attr("fill", d => d.color);
+            
+            barGroups.append("text")
+                .attr("x", d => (d.value / 100) * maxBarWidth - 10)
+                .attr("y", barHeight / 2)
+                .attr("text-anchor", "end")
+                .attr("dominant-baseline", "middle")
+                .attr("fill", "white")
+                .attr("font-size", "14px")
+                .attr("font-weight", "bold")
+                .text(d => d.value + "%");
+        });
+    </script>
+    
+    <!-- Script for timeline chart -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const container = document.getElementById('timeline-chart-container');
+            const svg = d3.select("#timeline-chart");
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            const g = svg.append("g").attr("transform", "translate(0,0)");
+            
+            const timelineData = [
+                { phase: "方案设计", position: 0.1, color: "#A57F75" },
+                { phase: "样板房建设", position: 0.25, color: "#A57F75" },
+                { phase: "设备采购", position: 0.4, color: "#6B8E9F" },
+                { phase: "人员培训", position: 0.55, color: "#6B8E9F" },
+                { phase: "服务推出", position: 0.7, color: "#8D7B74" },
+                { phase: "持续优化", position: 0.85, color: "#8D7B74" }
+            ];
+            
+            svg.append("line")
+                .attr("x1", 100)
+                .attr("y1", height / 2)
+                .attr("x2", width - 100)
+                .attr("y2", height / 2)
+                .attr("stroke", "#C7D3BF")
+                .attr("stroke-width", 3);
+            
+            const timelinePoints = svg.selectAll("circle")
+                .data(timelineData)
+                .enter()
+                .append("g")
+                .attr("transform", d => `translate(${100 + (width - 200) * d.position}, ${height / 2})`);
+
+            timelinePoints.append("circle")
+                .attr("r", 8)
+                .attr("fill", d => d.color)
+                .attr("stroke", "white")
+                .attr("stroke-width", 2);
+
+            timelinePoints.append("text")
+                .attr("y", -20)
+                .attr("text-anchor", "middle")
+                .attr("fill", d => d.color)
+                .attr("font-size", "14px")
+                .attr("font-weight", "bold")
+                .text(d => d.phase);
+        });
+    </script>
+</body>
+</html>
