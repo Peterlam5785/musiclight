@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>月子中心声光疗愈解决方案</title>
+    <title>月子中心声光疗愈解决方案 - 单页版</title>
     <!-- 引入谷歌字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- 引入 Font Awesome 6 -->
@@ -19,32 +19,27 @@
             padding: 0;
             background-color: #FFF8F4; /* Warm Ivory */
         }
-        /* 页面容器，移除固定尺寸，使用 flex 布局使其居中 */
-        .slide-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+        /* 主容器，居中显示，并提供内边距 */
+        .main-container {
             width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
             padding: 2rem;
             box-sizing: border-box;
         }
-        /* 单个幻灯片样式，使用相对单位 */
-        .slide {
-            width: 90%;
-            max-width: 1280px;
-            min-height: 70vh;
-            position: relative;
-            background-color: #FFF8F4;
+        /* 页面区块样式，增加间距和圆角 */
+        .page-section {
+            background-color: #F8F4F1;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             border-radius: 1rem;
-            padding: 2rem 4rem;
-            box-sizing: border-box;
-            display: none; /* 默认隐藏所有幻灯片 */
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
+        /* 针对不同区块的背景色 */
+        #light-therapy-section { background-color: #C7D3BF; }
+        #sound-healing-section { background-color: #E6D7E7; }
+        
         /* 标题和副标题字体样式 */
         .title {
             font-family: 'Noto Serif SC', serif;
@@ -124,45 +119,15 @@
             width: 3.5rem;
             height: 3.5rem;
         }
-        .control-buttons {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
-        }
-        .control-buttons button {
-            background-color: #A57F75;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .control-buttons button:hover {
-            background-color: #8D6A62;
-            transform: translateY(-2px);
-        }
-        .control-buttons button:disabled {
-            background-color: #d1d5db;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* 针对不同幻灯片的背景色 */
-        #slide-light-therapy { background-color: #C7D3BF; }
-        #slide-sound-healing { background-color: #E6D7E7; }
     </style>
 </head>
-<body class="bg-[#F8F4F1]">
+<body>
 
 <!-- 主容器 -->
-<div class="slide-container">
+<div class="main-container">
 
-    <!-- 幻灯片 1：封面页 -->
-    <div id="slide-cover" class="slide flex flex-col items-center justify-between relative p-8 md:p-12">
+    <!-- 封面页 -->
+    <div id="cover-section" class="page-section flex flex-col items-center justify-between relative p-8 md:p-12">
         <div class="accent-circle accent-circle-1 top-[-5rem] right-[-4rem]"></div>
         <div class="accent-circle accent-circle-2 bottom-[-0.5rem] left-[5rem]"></div>
         <div class="z-10 text-center mt-8 md:mt-16">
@@ -178,8 +143,8 @@
         </div>
     </div>
 
-    <!-- 幻灯片 2：三大挑战 -->
-    <div id="slide-challenges" class="slide flex-col items-center justify-center p-8 md:p-12">
+    <!-- 三大挑战 -->
+    <div id="challenges-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">产后妈妈面临的三大挑战</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">关注妈妈的情绪、睡眠和身体恢复，是月子中心服务的核心</p>
@@ -187,8 +152,8 @@
         <div id="challenge-chart" class="d3-chart mt-8 w-full max-w-2xl"></div>
     </div>
 
-    <!-- 幻灯片 3：光疗系统 -->
-    <div id="slide-light-therapy" class="slide flex-col items-center justify-center p-8 md:p-12" style="background-color: #C7D3BF;">
+    <!-- 光疗系统 -->
+    <div id="light-therapy-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">科学光疗系统</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">根据不同波长，精准解决产后恢复问题</p>
@@ -233,8 +198,8 @@
         </div>
     </div>
 
-    <!-- 幻灯片 4：声音疗愈 -->
-    <div id="slide-sound-healing" class="slide flex-col items-center justify-center p-8 md:p-12" style="background-color: #E6D7E7;">
+    <!-- 声音疗愈 -->
+    <div id="sound-healing-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">专业声疗系统</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">为身心提供深层次的疗愈和放松</p>
@@ -253,8 +218,8 @@
         </div>
     </div>
 
-    <!-- 幻灯片 5：现场服务 -->
-    <div id="slide-on-site-service" class="slide flex-col items-center justify-center p-8 md:p-12">
+    <!-- 现场服务 -->
+    <div id="on-site-service-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">效果显著，数据说话</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">产后情绪和睡眠得到显著改善</p>
@@ -271,8 +236,8 @@
         </div>
     </div>
 
-    <!-- 幻灯片 6：双赢价值 -->
-    <div id="slide-win-win" class="slide flex-col items-center justify-center p-8 md:p-12">
+    <!-- 双赢价值 -->
+    <div id="win-win-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">双赢价值，共创未来</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">赋能月子中心，提升品牌竞争力</p>
@@ -280,8 +245,8 @@
         <div id="value-chart" class="d3-chart mt-8 w-full max-w-2xl"></div>
     </div>
 
-    <!-- 幻灯片 7：3步落地 -->
-    <div id="slide-implementation" class="slide flex-col items-center justify-center p-8 md:p-12">
+    <!-- 3步落地 -->
+    <div id="implementation-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">3步轻松落地</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">从方案设计到持续优化，我们全程陪伴</p>
@@ -303,8 +268,8 @@
         </div>
     </div>
 
-    <!-- 幻灯片 8：联系我们 -->
-    <div id="slide-contact" class="slide flex-col items-center justify-center p-8 md:p-12">
+    <!-- 联系我们 -->
+    <div id="contact-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">联系我们</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">携手共创母婴服务新纪元，引领高端月子中心的发展趋势</p>
@@ -336,63 +301,13 @@
 
 </div>
 
-<!-- 幻灯片控制按钮 -->
-<div class="control-buttons">
-    <button id="prev-btn" disabled>上一页</button>
-    <button id="next-btn">下一页</button>
-</div>
-
 <script>
-    // 定义所有幻灯片
-    const slides = [
-        'slide-cover',
-        'slide-challenges',
-        'slide-light-therapy',
-        'slide-sound-healing',
-        'slide-on-site-service',
-        'slide-win-win',
-        'slide-implementation',
-        'slide-contact'
-    ];
-    let currentSlideIndex = 0;
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    // 定义所有图表和动画的绘制函数
 
-    // 显示当前幻灯片
-    function showSlide(index) {
-        // 隐藏所有幻灯片
-        document.querySelectorAll('.slide').forEach(slide => {
-            slide.style.display = 'none';
-        });
-        // 显示当前幻灯片
-        const currentSlide = document.getElementById(slides[index]);
-        currentSlide.style.display = 'flex';
-
-        // 重新绘制图表或启动动画
-        const slideId = slides[index];
-        if (slideId === 'slide-challenges') {
-            drawChallengeChart();
-        } else if (slideId === 'slide-sound-healing') {
-            animateSoundWaves();
-        } else if (slideId === 'slide-on-site-service') {
-            drawEmotionChart();
-            drawSleepChart();
-        } else if (slideId === 'slide-win-win') {
-            drawValueChart();
-        } else if (slideId === 'slide-implementation') {
-            drawTimelineChart();
-        }
-        
-        // 更新按钮状态
-        prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === slides.length - 1;
-    }
-
-    // 绘制挑战图表
+    /**
+     * 绘制挑战图表
+     */
     function drawChallengeChart() {
-        // 清除旧的图表
-        d3.select("#challenge-chart").selectAll("*").remove();
-        
         const data = [
             { challenge: "情绪波动", percentage: 90, color: "#A57F75" },
             { challenge: "睡眠障碍", percentage: 80, color: "#6B8E9F" },
@@ -401,8 +316,11 @@
 
         const margin = { top: 20, right: 20, bottom: 20, left: 150 };
         const chartContainer = document.getElementById('challenge-chart');
+        if (!chartContainer) return;
+        d3.select("#challenge-chart").selectAll("*").remove();
+        
         const containerWidth = chartContainer.clientWidth;
-        const containerHeight = chartContainer.clientHeight;
+        const containerHeight = 250; // 固定高度以保证美观
         const width = containerWidth - margin.left - margin.right;
         const height = containerHeight - margin.top - margin.bottom;
 
@@ -418,10 +336,6 @@
             .domain(data.map(d => d.challenge))
             .padding(0.4);
 
-        const x = d3.scaleLinear()
-            .range([0, width])
-            .domain([0, 100]);
-
         const barHeight = y.bandwidth();
         const maxBarWidth = width;
 
@@ -431,7 +345,7 @@
             .append("g")
             .attr("transform", d => `translate(0, ${y(d.challenge)})`);
 
-        // Challenge label
+        // 挑战标签
         barGroups.append("text")
             .attr("x", -10)
             .attr("y", barHeight / 2)
@@ -441,7 +355,7 @@
             .attr("font-size", "14px")
             .text(d => d.challenge);
             
-        // Background bar
+        // 背景条
         barGroups.append("rect")
             .attr("width", maxBarWidth)
             .attr("height", barHeight)
@@ -450,15 +364,19 @@
             .attr("fill", "#F4E5E1")
             .attr("opacity", 0.5);
 
-        // Percentage bar
+        // 百分比条
         barGroups.append("rect")
+            .attr("width", 0) // 初始宽度为0
+            .transition() // 添加动画
+            .duration(1000)
+            .ease(d3.easeElastic)
             .attr("width", d => (d.percentage / 100) * maxBarWidth)
             .attr("height", barHeight)
             .attr("rx", 10)
             .attr("ry", 10)
             .attr("fill", d => d.color);
         
-        // Percentage text
+        // 百分比文字
         barGroups.append("text")
             .attr("x", d => (d.percentage / 100) * maxBarWidth - 20)
             .attr("y", barHeight / 2)
@@ -470,7 +388,9 @@
             .text(d => d.percentage + "%");
     }
 
-    // 绘制情绪图表
+    /**
+     * 绘制情绪改善图表
+     */
     function drawEmotionChart() {
         d3.select("#emotion-chart").selectAll("*").remove();
 
@@ -481,8 +401,10 @@
         
         const margin = { top: 30, right: 30, bottom: 30, left: 30 };
         const chartContainer = document.getElementById('emotion-chart');
+        if (!chartContainer) return;
+
         const containerWidth = chartContainer.clientWidth;
-        const containerHeight = chartContainer.clientHeight;
+        const containerHeight = 250;
         const width = containerWidth - margin.left - margin.right;
         const height = containerHeight - margin.top - margin.bottom;
 
@@ -502,7 +424,7 @@
             .range([height, 0])
             .domain([0, 30]);
 
-        // Add X-axis
+        // 添加X轴
         svg.append("g")
             .attr("transform", `translate(0,${height})`)
             .call(d3.axisBottom(x).tickSize(0).tickPadding(10))
@@ -511,7 +433,7 @@
             .attr("fill", "#5A4A42")
             .attr("font-size", "16px");
             
-        // Add Y-axis
+        // 添加Y轴
         svg.append("g")
             .call(d3.axisLeft(y).ticks(5).tickSize(-width))
             .call(g => g.select(".domain").remove())
@@ -520,21 +442,26 @@
             .attr("fill", "#8D7B74")
             .attr("font-size", "12px");
 
-        // Add bars
+        // 添加柱状图
         svg.selectAll(".bar")
             .data(data)
             .enter()
             .append("rect")
             .attr("class", "bar")
             .attr("x", d => x(d.stage))
-            .attr("y", d => y(d.score))
+            .attr("y", height) // 初始位置
             .attr("width", x.bandwidth())
+            .attr("height", 0) // 初始高度
+            .transition() // 添加动画
+            .duration(1000)
+            .ease(d3.easeElastic)
+            .attr("y", d => y(d.score))
             .attr("height", d => height - y(d.score))
             .attr("rx", 5)
             .attr("ry", 5)
             .attr("fill", d => d.color);
 
-        // Add labels
+        // 添加标签
         svg.selectAll(".label")
             .data(data)
             .enter()
@@ -547,29 +474,11 @@
             .attr("font-weight", "bold")
             .attr("fill", d => d.color)
             .text(d => d.score);
-            
-        // Add arrow to show the reduction
-        svg.append("path")
-            .attr("d", `M${x("治疗前") + x.bandwidth() + 10},${y(12)} L${x("治疗后") - 10},${y(12)}`)
-            .attr("stroke", "#8D7B74")
-            .attr("stroke-width", 2)
-            .attr("marker-end", "url(#arrow)");
-        
-        // Add arrowhead marker
-        svg.append("defs").append("marker")
-            .attr("id", "arrow")
-            .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 5)
-            .attr("refY", 0)
-            .attr("markerWidth", 6)
-            .attr("markerHeight", 6)
-            .attr("orient", "auto")
-            .append("path")
-            .attr("d", "M0,-5L10,0L0,5")
-            .attr("fill", "#8D7B74");
     }
 
-    // 绘制睡眠图表
+    /**
+     * 绘制睡眠改善图表
+     */
     function drawSleepChart() {
         d3.select("#sleep-chart").selectAll("*").remove();
 
@@ -577,11 +486,12 @@
             { stage: "治疗前", score: 18, color: "#6B8E9F" },
             { stage: "治疗后", score: 7, color: "#E6D7E7" }
         ];
-
+        
         const margin = { top: 30, right: 30, bottom: 30, left: 30 };
         const chartContainer = document.getElementById('sleep-chart');
+        if (!chartContainer) return;
         const containerWidth = chartContainer.clientWidth;
-        const containerHeight = chartContainer.clientHeight;
+        const containerHeight = 250;
         const width = containerWidth - margin.left - margin.right;
         const height = containerHeight - margin.top - margin.bottom;
 
@@ -601,7 +511,7 @@
             .range([height, 0])
             .domain([0, 20]);
         
-        // Add X-axis
+        // 添加X轴
         svg.append("g")
             .attr("transform", `translate(0,${height})`)
             .call(d3.axisBottom(x).tickSize(0).tickPadding(10))
@@ -610,7 +520,7 @@
             .attr("fill", "#5A4A42")
             .attr("font-size", "16px");
 
-        // Add Y-axis
+        // 添加Y轴
         svg.append("g")
             .call(d3.axisLeft(y).ticks(5).tickSize(-width))
             .call(g => g.select(".domain").remove())
@@ -619,21 +529,26 @@
             .attr("fill", "#8D7B74")
             .attr("font-size", "12px");
 
-        // Add bars
+        // 添加柱状图
         svg.selectAll(".bar")
             .data(data)
             .enter()
             .append("rect")
             .attr("class", "bar")
             .attr("x", d => x(d.stage))
-            .attr("y", d => y(d.score))
+            .attr("y", height) // 初始位置
             .attr("width", x.bandwidth())
+            .attr("height", 0) // 初始高度
+            .transition() // 添加动画
+            .duration(1000)
+            .ease(d3.easeElastic)
+            .attr("y", d => y(d.score))
             .attr("height", d => height - y(d.score))
             .attr("rx", 5)
             .attr("ry", 5)
             .attr("fill", d => d.color);
 
-        // Add labels
+        // 添加标签
         svg.selectAll(".label")
             .data(data)
             .enter()
@@ -646,29 +561,11 @@
             .attr("font-weight", "bold")
             .attr("fill", d => d.color)
             .text(d => d.score);
-            
-        // Add arrow
-        svg.append("path")
-            .attr("d", `M${x("治疗前") + x.bandwidth() + 10},${y(7)} L${x("治疗后") - 10},${y(7)}`)
-            .attr("stroke", "#8D7B74")
-            .attr("stroke-width", 2)
-            .attr("marker-end", "url(#arrow-sleep)");
-            
-        // Add arrowhead marker
-        svg.append("defs").append("marker")
-            .attr("id", "arrow-sleep")
-            .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 5)
-            .attr("refY", 0)
-            .attr("markerWidth", 6)
-            .attr("markerHeight", 6)
-            .attr("orient", "auto")
-            .append("path")
-            .attr("d", "M0,-5L10,0L0,5")
-            .attr("fill", "#8D7B74");
     }
 
-    // 绘制价值图表
+    /**
+     * 绘制价值图表
+     */
     function drawValueChart() {
         d3.select("#value-chart").selectAll("*").remove();
 
@@ -680,8 +577,9 @@
 
         const margin = { top: 20, right: 20, bottom: 20, left: 150 };
         const chartContainer = document.getElementById('value-chart');
+        if (!chartContainer) return;
         const containerWidth = chartContainer.clientWidth;
-        const containerHeight = chartContainer.clientHeight;
+        const containerHeight = 250;
         const width = containerWidth - margin.left - margin.right;
         const height = containerHeight - margin.top - margin.bottom;
 
@@ -706,7 +604,7 @@
             .append("g")
             .attr("transform", d => `translate(0, ${y(d.category)})`);
 
-        // Background bar
+        // 背景条
         barGroups.append("rect")
             .attr("width", maxBarWidth)
             .attr("height", barHeight)
@@ -715,15 +613,19 @@
             .attr("fill", "#F4E5E1")
             .attr("opacity", 0.5);
         
-        // Percentage bar
+        // 百分比条
         barGroups.append("rect")
+            .attr("width", 0)
+            .transition()
+            .duration(1000)
+            .ease(d3.easeElastic)
             .attr("width", d => (d.value / 100) * maxBarWidth)
             .attr("height", barHeight)
             .attr("rx", 15)
             .attr("ry", 15)
             .attr("fill", d => d.color);
         
-        // Labels
+        // 标签
         barGroups.append("text")
             .attr("x", -20)
             .attr("y", barHeight / 2)
@@ -734,7 +636,7 @@
             .attr("font-weight", "bold")
             .text(d => d.category);
         
-        // Percentage text
+        // 百分比文字
         barGroups.append("text")
             .attr("x", d => (d.value / 100) * maxBarWidth - 10)
             .attr("y", barHeight / 2)
@@ -746,7 +648,9 @@
             .text(d => d.value + "%");
     }
 
-    // 绘制时间线
+    /**
+     * 绘制时间线
+     */
     function drawTimelineChart() {
         d3.select("#timeline-chart").selectAll("*").remove();
 
@@ -761,8 +665,9 @@
 
         const margin = { top: 20, right: 20, bottom: 20, left: 20 };
         const chartContainer = document.getElementById('timeline-chart');
+        if (!chartContainer) return;
         const containerWidth = chartContainer.clientWidth;
-        const containerHeight = chartContainer.clientHeight;
+        const containerHeight = 150;
         const width = containerWidth - margin.left - margin.right;
         const height = containerHeight - margin.top - margin.bottom;
 
@@ -773,7 +678,7 @@
             .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
         
-        // Draw timeline
+        // 绘制时间线
         svg.append("line")
             .attr("x1", 50)
             .attr("y1", height / 2)
@@ -782,7 +687,7 @@
             .attr("stroke", "#C7D3BF")
             .attr("stroke-width", 3);
         
-        // Draw timeline points and labels
+        // 绘制时间线点和标签
         svg.selectAll("circle")
             .data(timelineData)
             .enter()
@@ -807,18 +712,20 @@
             .text(d => d.phase);
     }
 
-    // 声音疗愈动画
+    /**
+     * 声音疗愈动画
+     */
     function animateSoundWaves() {
-        d3.select("#sound-waves").selectAll("*").remove();
-
         const svg = d3.select("#sound-waves");
         const chartContainer = document.getElementById('sound-waves');
+        if (!chartContainer) return;
+        
         const containerWidth = chartContainer.clientWidth;
         const containerHeight = chartContainer.clientHeight;
         const width = containerWidth;
         const height = containerHeight;
         
-        // Clear old content
+        // 清除旧内容
         svg.attr("width", width)
            .attr("height", height)
            .selectAll("*").remove();
@@ -890,46 +797,25 @@
                         .transition().duration(0).on("end", animate);
                 });
         }
-        
-        // 绑定窗口大小改变事件，以便重新绘制图表和动画
-        window.addEventListener('resize', () => {
-            const currentSlideId = slides[currentSlideIndex];
-            if (currentSlideId === 'slide-challenges') {
-                drawChallengeChart();
-            } else if (currentSlideId === 'slide-sound-healing') {
-                animateSoundWaves();
-            } else if (currentSlideId === 'slide-on-site-service') {
-                drawEmotionChart();
-                drawSleepChart();
-            } else if (currentSlideId === 'slide-win-win') {
-                drawValueChart();
-            } else if (currentSlideId === 'slide-implementation') {
-                drawTimelineChart();
-            }
-        });
-
         animate();
     }
     
-    // 初始化幻灯片
-    document.addEventListener('DOMContentLoaded', () => {
-        showSlide(currentSlideIndex);
-    });
+    // 初始化所有图表和动画
+    function initializeContent() {
+        drawChallengeChart();
+        drawEmotionChart();
+        drawSleepChart();
+        drawValueChart();
+        drawTimelineChart();
+        animateSoundWaves();
+    }
+    
+    // 在页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', initializeContent);
 
-    // 绑定事件监听器
-    prevBtn.addEventListener('click', () => {
-        if (currentSlideIndex > 0) {
-            currentSlideIndex--;
-            showSlide(currentSlideIndex);
-        }
-    });
+    // 绑定窗口大小改变事件，以便重新绘制图表和动画以适应新尺寸
+    window.addEventListener('resize', initializeContent);
 
-    nextBtn.addEventListener('click', () => {
-        if (currentSlideIndex < slides.length - 1) {
-            currentSlideIndex++;
-            showSlide(currentSlideIndex);
-        }
-    });
 </script>
 
 </body>
