@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>月子中心声光疗愈解决方案 - 单页版</title>
+    <title>月子中心声光疗愈解决方案</title>
     <!-- 引入谷歌字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- 引入 Font Awesome 6 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- 引入 Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 自定义CSS以覆盖部分Tailwind默认样式或添加特定效果 */
         body {
             font-family: 'Noto Sans SC', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #FFF8F4; /* Warm Ivory */
+            background-color: #FFF8F4; /* 温和的象牙色 */
         }
-        /* 主容器，居中显示，并提供内边距 */
+        
+        /* 主要内容容器，确保内容居中且有最大宽度 */
         .main-container {
             width: 100%;
             max-width: 1280px;
@@ -27,7 +29,8 @@
             padding: 2rem;
             box-sizing: border-box;
         }
-        /* 页面区块样式，增加间距和圆角 */
+
+        /* 页面各部分区块的统一风格，增加间距、圆角和阴影 */
         .page-section {
             background-color: #F8F4F1;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -36,11 +39,12 @@
             margin-bottom: 2rem;
             position: relative;
         }
-        /* 针对不同区块的背景色 */
+        
+        /* 针对特定区块的背景色 */
         #light-therapy-section { background-color: #C7D3BF; }
         #sound-healing-section { background-color: #E6D7E7; }
         
-        /* 标题和副标题字体样式 */
+        /* 标题和副标题的字体样式 */
         .title {
             font-family: 'Noto Serif SC', serif;
             color: #5A4A42;
@@ -53,6 +57,8 @@
             color: #6B5750;
             font-size: 1.5rem;
         }
+        
+        /* 装饰性线条样式 */
         .decorative-line {
             height: 3px;
             background: linear-gradient(90deg, #C7D3BF 0%, #E6D7E7 100%);
@@ -60,10 +66,14 @@
             width: 80%;
             max-width: 24rem;
         }
+        
+        /* 突出显示的文字颜色 */
         .highlight {
             color: #A57F75;
             font-weight: 500;
         }
+        
+        /* 装饰性圆圈样式 */
         .accent-circle {
             position: absolute;
             border-radius: 50%;
@@ -83,6 +93,8 @@
             bottom: -0.5rem;
             left: 5rem;
         }
+        
+        /* 图像容器样式 */
         .image-container {
             width: 90%;
             max-width: 44rem;
@@ -91,7 +103,9 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .light-card, .contact-card {
+        
+        /* 光疗和卡片样式 */
+        .light-card {
             background-color: #F8F4F1;
             border-radius: 1rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -99,9 +113,11 @@
             max-width: 24rem;
             margin: 1rem;
         }
-        .light-card:hover, .contact-card:hover {
+        .light-card:hover {
             transform: translateY(-5px);
         }
+        
+        /* 图标容器样式 */
         .icon-container {
             width: 4rem;
             height: 4rem;
@@ -111,13 +127,11 @@
             justify-content: center;
             flex-shrink: 0;
         }
+
+        /* D3图表容器样式 */
         .d3-chart {
             width: 100%;
-            height: 400px;
-        }
-        .contact-card .icon-container {
-            width: 3.5rem;
-            height: 3.5rem;
+            height: 400px; /* 固定高度以保持美观 */
         }
     </style>
 </head>
@@ -149,6 +163,7 @@
             <h1 class="title text-3xl md:text-4xl mb-4">产后妈妈面临的三大挑战</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">关注妈妈的情绪、睡眠和身体恢复，是月子中心服务的核心</p>
         </div>
+        <!-- 挑战图表容器 -->
         <div id="challenge-chart" class="d3-chart mt-8 w-full max-w-2xl"></div>
     </div>
 
@@ -213,12 +228,13 @@
                 </div>
             </div>
             <div class="w-full md:w-1/2 flex items-center justify-center">
+                <!-- 声音疗愈动画容器 -->
                 <svg id="sound-waves" class="w-full h-40"></svg>
             </div>
         </div>
     </div>
 
-    <!-- 现场服务 -->
+    <!-- 效果显著，数据说话 -->
     <div id="on-site-service-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
         <div class="z-10 text-center">
             <h1 class="title text-3xl md:text-4xl mb-4">效果显著，数据说话</h1>
@@ -227,10 +243,12 @@
         <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-5xl mt-8">
             <div class="w-full md:w-1/2">
                 <h3 class="text-center text-xl font-bold text-[#A57F75] mb-4">产后情绪改善度</h3>
+                <!-- 情绪改善图表容器 -->
                 <div id="emotion-chart" class="d3-chart w-full h-64"></div>
             </div>
             <div class="w-full md:w-1/2">
                 <h3 class="text-center text-xl font-bold text-[#6B8E9F] mb-4">产后睡眠改善度</h3>
+                <!-- 睡眠改善图表容器 -->
                 <div id="sleep-chart" class="d3-chart w-full h-64"></div>
             </div>
         </div>
@@ -242,6 +260,7 @@
             <h1 class="title text-3xl md:text-4xl mb-4">双赢价值，共创未来</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">赋能月子中心，提升品牌竞争力</p>
         </div>
+        <!-- 价值图表容器 -->
         <div id="value-chart" class="d3-chart mt-8 w-full max-w-2xl"></div>
     </div>
 
@@ -251,6 +270,7 @@
             <h1 class="title text-3xl md:text-4xl mb-4">3步轻松落地</h1>
             <p class="subtitle text-lg md:text-xl text-[#8D7B74]">从方案设计到持续优化，我们全程陪伴</p>
         </div>
+        <!-- 时间线图表容器 -->
         <div id="timeline-chart" class="d3-chart w-full h-40 mt-8 max-w-5xl"></div>
         <div class="flex flex-wrap justify-center gap-4 mt-8 w-full max-w-5xl text-center text-[#8D7B74]">
             <div class="flex-1 min-w-[200px] p-4 bg-[#F4E5E1] rounded-xl shadow-md">
@@ -267,45 +287,14 @@
             </div>
         </div>
     </div>
-
-    <!-- 联系我们 -->
-    <div id="contact-section" class="page-section flex-col items-center justify-center p-8 md:p-12">
-        <div class="z-10 text-center">
-            <h1 class="title text-3xl md:text-4xl mb-4">联系我们</h1>
-            <p class="subtitle text-lg md:text-xl text-[#8D7B74]">携手共创母婴服务新纪元，引领高端月子中心的发展趋势</p>
-        </div>
-        <div class="contact-card p-8 w-full max-w-3xl mt-8">
-            <h3 class="font-bold text-xl text-[#5A4A42] mb-6 text-center">合作諮詢</h3>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
-                <div class="flex items-center">
-                    <div class="icon-container bg-[#F4E5E1] flex-shrink-0">
-                        <i class="fas fa-phone text-2xl text-[#A57F75]"></i>
-                    </div>
-                    <div class="ml-4 text-center md:text-left">
-                        <p class="text-sm text-[#8D7B74]">諮詢專線</p>
-                        <p class="text-lg text-[#5A4A42] font-medium">18102535583</p>
-                    </div>
-                </div>
-                <div class="flex items-center">
-                    <div class="icon-container bg-[#E6D7E7] flex-shrink-0">
-                        <i class="fab fa-weixin text-2xl text-[#8D7B74]"></i>
-                    </div>
-                    <div class="ml-4 text-center md:text-left">
-                        <p class="text-sm text-[#8D7B74]">微信</p>
-                        <p class="text-lg text-[#5A4A42] font-medium">Joseph5784</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
 </div>
 
 <script>
     // 定义所有图表和动画的绘制函数
-
+    
     /**
-     * 绘制挑战图表
+     * 绘制挑战图表 (来自index2.html)
      */
     function drawChallengeChart() {
         const data = [
@@ -389,7 +378,7 @@
     }
 
     /**
-     * 绘制情绪改善图表
+     * 绘制情绪改善图表 (来自index5.html)
      */
     function drawEmotionChart() {
         d3.select("#emotion-chart").selectAll("*").remove();
@@ -477,7 +466,7 @@
     }
 
     /**
-     * 绘制睡眠改善图表
+     * 绘制睡眠改善图表 (来自index5.html)
      */
     function drawSleepChart() {
         d3.select("#sleep-chart").selectAll("*").remove();
@@ -562,9 +551,9 @@
             .attr("fill", d => d.color)
             .text(d => d.score);
     }
-
+    
     /**
-     * 绘制价值图表
+     * 绘制价值图表 (来自index6.html)
      */
     function drawValueChart() {
         d3.select("#value-chart").selectAll("*").remove();
@@ -649,7 +638,7 @@
     }
 
     /**
-     * 绘制时间线
+     * 绘制时间线 (来自index7.html)
      */
     function drawTimelineChart() {
         d3.select("#timeline-chart").selectAll("*").remove();
@@ -713,7 +702,7 @@
     }
 
     /**
-     * 声音疗愈动画
+     * 声音疗愈动画 (来自index4.html)
      */
     function animateSoundWaves() {
         const svg = d3.select("#sound-waves");
